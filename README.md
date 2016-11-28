@@ -6,7 +6,7 @@ A Clojure library designed to demonstrate how to use an AWS Lambda function writ
 
 On your local machine, run with `leiningen`, passing in Clojure-style map as string:
 
-- `lein run {key1 value1, key2 value2, key3 value3}`
+- `lein run "{key1 value1, key2 value2, key3 value3}"`
 
 To run with AWS Lambda:
 
