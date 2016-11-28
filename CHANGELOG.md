@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file. This change
 
 ## [Unreleased]
 ### Changed
-- Documentation.
+- Documentation and README.
 
 ## [0.1.0] - 2016-11-28
 ### Added

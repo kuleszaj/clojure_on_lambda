@@ -1,14 +1,21 @@
 # clojure-on-lambda
 
-A Clojure library designed to ... well, that part is up to you.
+A Clojure library designed to demonstrate how to use an AWS Lambda function written in Clojure.
 
 ## Usage
 
-FIXME
+On your local machine, run with `leiningen`, passing in Clojure-style map as string:
+
+- `lein run {key1 value1, key2 value2, key3 value3}`
+
+To run with AWS Lambda:
+
+- Package with `lein uberjar`.
+- Upload the resulting standalone JAR to AWS Lambda.
+- Set AWS Lambda Runtime as "Java 8".
+- Specify the handler as "clojure_on_lambda.core::handleRequest".
+- Test with sample data.
 
 ## License
 
-Copyright © 2016 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+See [LICENSE](LICENSE) file.
