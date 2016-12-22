@@ -2,6 +2,8 @@
 
 A Clojure library designed to demonstrate how to use an AWS Lambda function written in Clojure.
 
+Relies on [com.amazonaws/aws-lambda-java-core](https://github.com/aws/aws-lambda-java-libs/tree/master/aws-lambda-java-cor://github.com/aws/aws-lambda-java-libs/tree/master/aws-lambda-java-core)
+
 ## Usage
 
 On your local machine, run with `leiningen`, passing in Clojure-style map as string:

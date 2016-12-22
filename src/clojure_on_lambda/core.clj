@@ -1,25 +1,24 @@
 (ns clojure-on-lambda.core
   "Sample AWS Lambda function, written in Clojure, which summarizes
-  the event data provided to the Lambda function, and returns the
+  the JSON event data provided to the Lambda function, and returns the
   summarization as JSON data."
   (:require [clojure.data.json :as json])
   (:gen-class
-   :implements [com.amazonaws.services.lambda.runtime.RequestHandler]
-   :methods [^:static [handleRequest [String String] String]]))
+    :methods [^:static [handleEvent [String] String]]))
 
-(defn summarize-map
-  "Summarizes the provided map."
-  [map-data]
-  {:keys (keys map-data)
+(defn summarize-data
+  "Summarizes the provided data."
+  [data]
+  {:keys (keys data)
    :key_count (count
-               (keys map-data))})
+               (keys data))})
 
 (defn data-helper
   "Prints debugging messages to STDOUT, and calls
-  `summarize-map` on provided data."
-  [map-data]
-  (println "Got:" (str map-data))
-  (let [result (summarize-map map-data)]
+  `summarize-data` on provided data."
+  [data]
+  (println "Got:" data)
+  (let [result (summarize-data (json/read-str data))]
     (println "Summarized:" result)
     (json/write-str result)))
 
@@ -29,8 +28,8 @@
   (let [event (read-string (first args))]
     (data-helper event)))
 
-(defn -handleRequest
+(defn -handleEvent
   "Hook for AWS Lamda; calls `data-helper`
   on the provided event data."
-  [this event context]
+  [this event]
   (data-helper event))
